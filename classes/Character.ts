@@ -71,7 +71,7 @@ class Character {
     }
 
     public static getInstance(): Character {
-        if (this.instance == null) {
+        if (this.instance === null) {
             this.instance = new Character();
         }
         return this.instance;
@@ -93,13 +93,16 @@ class Character {
                 bonus += passive.getHealthRegenerationBonus();
             }
         }
-        return Math.floor((
-            (level < 10 ? 1.9 + level / 20 : 1.45 + level / 10) *
-                multiplier *
-                this.constitutionModifiers[constitution] *
-                this.getLevelModifier(level) +
-            bonus
-        )*10)/10;
+        return (
+            Math.floor(
+                ((level < 10 ? 1.9 + level / 20 : 1.45 + level / 10) *
+                    multiplier *
+                    this.constitutionModifiers[constitution] *
+                    this.getLevelModifier(level) +
+                    bonus) *
+                    10
+            ) / 10
+        );
     }
 
     private getLevelModifier(level: number): number {
