@@ -1,0 +1,3 @@
+class WeaponType {
+    public constructor() {}
+}
