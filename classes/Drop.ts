@@ -1,6 +1,7 @@
 class Drop {
     private value: number;
     private dropChance: number;
+    private dropChanceString: string;
 
     public constructor() {
         this.value = 0;
@@ -19,8 +20,12 @@ class Drop {
         this.value = value;
     }
 
+    public getDropChanceString(): string {
+        return this.dropChanceString;
+    }
+
     public setDropChance(valuesString: string): void {
-        this.dropChance = NaN;
+        let newDropChance: number;
         let values: Array<string>;
         valuesString = valuesString.replace(",", ".");
         values = valuesString.split("/");
@@ -28,9 +33,14 @@ class Drop {
          * this assignment is valid because String.split
          * always returns an Array which length is at least 1
          */
-        this.dropChance = Drop.parseValue(values[0]);
+        newDropChance = Drop.parseValue(values[0]);
         for (let i: number = 1; i < values.length; i++) {
-            this.dropChance /= Drop.parseValue(values[i]);
+            newDropChance /= Drop.parseValue(values[i]);
         }
+        if (newDropChance === NaN) {
+            throw new Error("Invalid drop chance.");
+        }
+        this.dropChance = newDropChance;
+        this.dropChanceString = valuesString;
     }
 }
