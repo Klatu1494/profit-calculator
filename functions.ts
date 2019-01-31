@@ -14,7 +14,7 @@ function createMovementMode(
     selectElement.appendChild(optionElement);
 }
 
-function createDropRow(tableBody: HTMLTableSectionElement) {
+function createDrop(drops: Array<Drop>, tableBody: HTMLTableSectionElement) {
     let drop = new Drop();
     let row: HTMLTableRowElement = document.createElement("tr");
     //name
@@ -25,12 +25,28 @@ function createDropRow(tableBody: HTMLTableSectionElement) {
     //dropChance
     cell = document.createElement("td");
     input = document.createElement("input");
+    input.value = "0";
     input.addEventListener("blur", function() {
         try {
-            drop.setDropChance(input.value);
+            drop.setDropChance(this.value);
         } catch (error) {
             this.value = drop.getDropChanceString();
         }
     });
+    cell.appendChild(input);
+    row.appendChild(cell);
+    //value
+    cell = document.createElement("td");
+    input = document.createElement("input");
+    input.type = "number";
+    input.min = "0";
+    input.value = "0";
+    input.addEventListener("blur", function() {
+        drop.setValue(parseFloat(this.value));
+    });
+    cell.appendChild(input);
+    row.appendChild(cell);
+    //add row to the table
     tableBody.appendChild(row);
+    drops.push(drop);
 }

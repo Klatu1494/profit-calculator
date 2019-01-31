@@ -37,7 +37,7 @@ class Drop {
         for (let i: number = 1; i < values.length; i++) {
             newDropChance /= Drop.parseValue(values[i]);
         }
-        if (newDropChance === NaN) {
+        if (newDropChance === NaN || newDropChance < 0) {
             throw new Error("Invalid drop chance.");
         }
         this.dropChance = newDropChance;
