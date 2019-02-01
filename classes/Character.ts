@@ -1,6 +1,7 @@
 class Character {
     private movementModeMultiplier: number;
     private level: number;
+    private setBonus: SetBonus;
     private static readonly constitutionModifiers: Array<number> = [
         null,
         0.46,
@@ -83,20 +84,19 @@ class Character {
                 bonus += passive.getHealthRegenerationBonus();
             }
         }
-        return (
-            Math.floor(
-                ((level < 10 ? 1.9 + level / 20 : 1.45 + level / 10) *
-                    multiplier *
-                    Character.constitutionModifiers[constitution] *
-                    this.getLevelModifier(level) +
-                    bonus) *
-                    10
-            ) / 10
+        return Math.floor(
+            (level < 10 ? 1.9 + level / 20 : 1.45 + level / 10) *
+                multiplier *
+                Character.constitutionModifiers[constitution] *
+                this.getLevelModifier() *
+                this.setBonus.getHealthRegenerationMultiplier() *
+                this.movementModeMultiplier +
+                bonus
         );
     }
 
-    private getLevelModifier(level: number): number {
-        return (level + 89) / 100;
+    private getLevelModifier(): number {
+        return (this.level + 89) / 100;
     }
 
     public getProfit(): number {
@@ -105,5 +105,9 @@ class Character {
 
     public setMovementModeMultiplier(value: number): void {
         this.movementModeMultiplier = value;
+    }
+
+    public setLevel(value: number): void {
+        this.level = value;
     }
 }
