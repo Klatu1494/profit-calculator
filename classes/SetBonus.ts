@@ -6,8 +6,13 @@ class SetBonus {
     private castingSpeedMultiplier: number;
     private strengthBonus: number;
     private dexterityBonus: number;
+    private constitutionBonus: number;
+    private intelligenceBonus: number;
+    private witBonus: number;
     private criticalDamageBonus: number;
     private physicalAttackMultiplier: number;
+    private magicalAttackMultiplier: number;
+    private shieldDefenseRateMultiplier: number;
 
     public constructor() {
         this.healthRegenerationMultiplier = 1;
@@ -17,8 +22,21 @@ class SetBonus {
         this.castingSpeedMultiplier = 1;
         this.strengthBonus = 0;
         this.dexterityBonus = 0;
+        this.constitutionBonus = 0;
+        this.intelligenceBonus = 0;
+        this.witBonus = 0;
         this.criticalDamageBonus = 0;
         this.physicalAttackMultiplier = 1;
+        this.magicalAttackMultiplier = 1;
+        this.shieldDefenseRateMultiplier = 1;
+    }
+
+    public getShieldDefenseRateMultiplier(): number {
+        return this.shieldDefenseRateMultiplier;
+    }
+
+    public setShieldDefenseRateMultiplier(value: number): void {
+        this.shieldDefenseRateMultiplier = value;
     }
 
     public getHealthRegenerationMultiplier(): number {
@@ -77,6 +95,14 @@ class SetBonus {
         this.dexterityBonus = value;
     }
 
+    public getWitBonus(): number {
+        return this.witBonus;
+    }
+
+    public setWitBonus(value: number): void {
+        this.witBonus = value;
+    }
+
     public getCriticalDamageBonus(): number {
         return this.criticalDamageBonus;
     }
@@ -91,5 +117,29 @@ class SetBonus {
 
     public setPhysicalAttackMultiplier(value: number): void {
         this.physicalAttackMultiplier = value;
+    }
+
+    public getMagicalAttackMultiplier(): number {
+        return this.magicalAttackMultiplier;
+    }
+
+    public setMagicalAttackMultiplier(value: number): void {
+        this.magicalAttackMultiplier = value;
+    }
+
+    public getConstitutionBonus(): number {
+        return this.constitutionBonus;
+    }
+
+    public setConstitutionBonus(value: number): void {
+        this.constitutionBonus = value;
+    }
+
+    public getIntelligenceBonus(): number {
+        return this.intelligenceBonus;
+    }
+
+    public setIntelligenceBonus(value: number): void {
+        this.intelligenceBonus = value;
     }
 }
