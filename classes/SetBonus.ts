@@ -1,34 +1,74 @@
 class SetBonus {
-    private healthRegenerationMultiplier: number;
-    private manaRegenerationMultiplier: number;
-    private physicalDefenseMultiplier: number;
-    private shieldDefenseMultiplier: number;
     private castingSpeedMultiplier: number;
-    private strengthBonus: number;
-    private dexterityBonus: number;
     private constitutionBonus: number;
-    private intelligenceBonus: number;
-    private witBonus: number;
     private criticalDamageBonus: number;
-    private physicalAttackMultiplier: number;
+    private dexterityBonus: number;
+    private healthRegenerationMultiplier: number;
+    private intelligenceBonus: number;
     private magicalAttackMultiplier: number;
+    private magicalDefenseMultiplier: number;
+    private magicalResistanceBonus: number;
+    private manaRegenerationMultiplier: number;
+    private mentalityBonus: number;
+    private physicalAttackMultiplier: number;
+    private physicalDefenseMultiplier: number;
+    private physicalEvasionBonus: number;
+    private shieldDefenseMultiplier: number;
     private shieldDefenseRateMultiplier: number;
+    private strengthBonus: number;
+    private witBonus: number;
 
     public constructor() {
-        this.healthRegenerationMultiplier = 1;
-        this.manaRegenerationMultiplier = 1;
-        this.physicalDefenseMultiplier = 1;
-        this.shieldDefenseMultiplier = 1;
         this.castingSpeedMultiplier = 1;
-        this.strengthBonus = 0;
-        this.dexterityBonus = 0;
         this.constitutionBonus = 0;
-        this.intelligenceBonus = 0;
-        this.witBonus = 0;
         this.criticalDamageBonus = 0;
-        this.physicalAttackMultiplier = 1;
+        this.dexterityBonus = 0;
+        this.healthRegenerationMultiplier = 1;
+        this.intelligenceBonus = 0;
         this.magicalAttackMultiplier = 1;
+        this.magicalDefenseMultiplier = 1;
+        this.magicalResistanceBonus = 0;
+        this.manaRegenerationMultiplier = 1;
+        this.mentalityBonus = 0;
+        this.physicalAttackMultiplier = 1;
+        this.physicalDefenseMultiplier = 1;
+        this.physicalEvasionBonus = 0;
+        this.shieldDefenseMultiplier = 1;
         this.shieldDefenseRateMultiplier = 1;
+        this.strengthBonus = 0;
+        this.witBonus = 0;
+    }
+
+    public getMentalityBonus(): number {
+        return this.mentalityBonus;
+    }
+
+    public setMentalityBonus(value: number): void {
+        this.mentalityBonus = value;
+    }
+
+    public getPhysicalEvasionBonus(): number {
+        return this.physicalEvasionBonus;
+    }
+
+    public setPhysicalEvasionBonus(value: number): void {
+        this.physicalEvasionBonus = value;
+    }
+
+    public getMagicalDefenseMultiplier(): number {
+        return this.magicalDefenseMultiplier;
+    }
+
+    public setMagicalDefenseMultiplier(value: number): void {
+        this.magicalDefenseMultiplier = value;
+    }
+
+    public getMagicalResistanceBonus(): number {
+        return this.magicalResistanceBonus;
+    }
+
+    public setMagicalResistanceBonus(value: number): void {
+        this.magicalResistanceBonus = value;
     }
 
     public getShieldDefenseRateMultiplier(): number {

@@ -16,6 +16,10 @@ class Drop {
         return parsedValue;
     }
 
+    public getAverageValue(): number {
+        return this.dropChance * this.value;
+    }
+
     public setValue(value: number): void {
         this.value = value;
     }
