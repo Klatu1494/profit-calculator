@@ -36,6 +36,25 @@ class SetBonus {
         return this.nullBonus;
     }
 
+    public getClone(): SetBonus {
+        let clone: SetBonus = new SetBonus();
+        clone.healthRegenerationMultiplier = this.healthRegenerationMultiplier;
+        clone.manaRegenerationMultiplier = this.manaRegenerationMultiplier;
+        clone.physicalDefenseMultiplier = this.physicalDefenseMultiplier;
+        clone.shieldDefenseMultiplier = this.shieldDefenseMultiplier;
+        clone.castingSpeedMultiplier = this.castingSpeedMultiplier;
+        clone.strengthBonus = this.strengthBonus;
+        clone.dexterityBonus = this.dexterityBonus;
+        clone.constitutionBonus = this.constitutionBonus;
+        clone.intelligenceBonus = this.intelligenceBonus;
+        clone.witBonus = this.witBonus;
+        clone.criticalDamageBonus = this.criticalDamageBonus;
+        clone.physicalAttackMultiplier = this.physicalAttackMultiplier;
+        clone.magicalAttackMultiplier = this.magicalAttackMultiplier;
+        clone.shieldDefenseRateMultiplier = this.shieldDefenseRateMultiplier;
+        return clone;
+    }
+
     public getShieldDefenseRateMultiplier(): number {
         return this.shieldDefenseRateMultiplier;
     }
