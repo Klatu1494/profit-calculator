@@ -9,10 +9,18 @@ addEventListener("load", () => {
     let movementModesSelect: HTMLSelectElement = document.createElement(
         "select"
     );
-    createMovementMode(player, "Standing", 1.1, movementModesSelect);
-    createMovementMode(player, "Sitting", 1.5, movementModesSelect);
-    createMovementMode(player, "Running", 0.7, movementModesSelect);
-    createMovementMode(player, "Walking", 1, movementModesSelect);
+    createMovementMode(
+        player,
+        "Running",
+        MovementModes.Running,
+        movementModesSelect
+    );
+    createMovementMode(
+        player,
+        "Walking",
+        MovementModes.Walking,
+        movementModesSelect
+    );
     document.body.appendChild(movementModesSelect);
 
     //drops table creation
