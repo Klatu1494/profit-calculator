@@ -13,6 +13,7 @@ class SetBonus {
     private physicalAttackMultiplier: number;
     private magicalAttackMultiplier: number;
     private shieldDefenseRateMultiplier: number;
+    private static nullBonus: SetBonus = new SetBonus();
 
     public constructor() {
         this.healthRegenerationMultiplier = 1;
@@ -29,6 +30,10 @@ class SetBonus {
         this.physicalAttackMultiplier = 1;
         this.magicalAttackMultiplier = 1;
         this.shieldDefenseRateMultiplier = 1;
+    }
+
+    public static getNullBonus(): SetBonus {
+        return this.nullBonus;
     }
 
     public getShieldDefenseRateMultiplier(): number {
